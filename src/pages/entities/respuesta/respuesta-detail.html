@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Respuesta</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Valoracion</ion-label>
+            <div item-content>
+                <span>{{respuesta.valoracion}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Descripcion</ion-label>
+            <div item-content>
+                <span>{{respuesta.descripcion}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Estado</ion-label>
+            <div item-content>
+                <span>{{respuesta.estado}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Reporte</ion-label>
+            <div item-content *ngIf="respuesta.reporte">
+                <a>{{respuesta.reporte?.id}}</a>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Area Riesgo</ion-label>
+            <div item-content>
+                <span *ngFor="let areaRiesgo of respuesta.areaRiesgos; let last = last">
+                    <a>{{areaRiesgo.id}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo Riesgo</ion-label>
+            <div item-content>
+                <span *ngFor="let tipoRiesgo of respuesta.tipoRiesgos; let last = last">
+                    <a>{{tipoRiesgo.id}}</a>{{last ? '' : ', '}}
+                </span>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="open(respuesta)">{{ 'EDIT_BUTTON' | translate }}</button>
+</ion-content>

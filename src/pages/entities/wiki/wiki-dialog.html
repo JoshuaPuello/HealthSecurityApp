@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Wiki</ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="cancel()">
+                <span color="primary" showWhen="ios">
+                  {{ 'CANCEL_BUTTON' | translate }}
+                </span>
+                <ion-icon name="md-close" showWhen="core,android,windows"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+                <span color="primary" showWhen="ios">
+                    {{ 'DONE_BUTTON' | translate }}
+                </span>
+                <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="save()">
+        <ion-list>
+            <ion-item [hidden]="!form.id">
+                <ion-label>ID</ion-label>
+                <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" placeholder="Titulo" formControlName="titulo"></ion-input>
+            </ion-item>
+            <ion-item>
+                <div>
+                    <img [src]="'data:' + wiki.imagenContentType + ';base64,' + wiki.imagen" style="max-height: 100px;" *ngIf="wiki?.imagen" alt="wiki image"/>
+                    <div *ngIf="wiki.imagen">
+                        <p>{{wiki.imagenContentType}}, {{byteSize(wiki.imagen)}}</p>
+                        <button type="button" class="trash" (click)="clearInputImage('imagen', 'imagenContentType', 'fileImage')">
+                            <ion-icon name="trash"></ion-icon>
+                        </button>
+                    </div>
+                    <input type="file" #fileInput style="display: none" (change)="setFileData($event, wiki, 'imagen', true)" accept="image/*"/>
+                    <div *ngIf="!wiki?.imagen" (click)="getPicture('imagen')" ion-button icon-start>
+                        <ion-icon name="add-circle"></ion-icon>
+                        {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-textarea placeholder="Descripcion" formControlName="descripcion" id="field_descripcion"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label>Tema</ion-label>
+                <ion-select id="field_tema" formControlName="tema" [compareWith]="compareTema" required>
+                    <ion-option *ngIf="!form.value.tema" [value]="null" selected></ion-option>
+                    <ion-option [value]="temaOption" *ngFor="let temaOption of temas; trackBy: trackTemaById">{{temaOption.id}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <div [hidden]="!(form.controls.tema?.dirty && form.controls.tema?.invalid)">
+                <small [hidden]="!form.controls.tema?.errors?.required">
+                    This field is required.
+                </small>
+            </div>
+            <ion-item>
+                <ion-label>Categoria</ion-label>
+                <ion-select id="field_categoria" formControlName="categoria" [compareWith]="compareCategoria" required>
+                    <ion-option *ngIf="!form.value.categoria" [value]="null" selected></ion-option>
+                    <ion-option [value]="categoriaOption" *ngFor="let categoriaOption of categorias; trackBy: trackCategoriaById">{{categoriaOption.id}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <div [hidden]="!(form.controls.categoria?.dirty && form.controls.categoria?.invalid)">
+                <small [hidden]="!form.controls.categoria?.errors?.required">
+                    This field is required.
+                </small>
+            </div>
+        </ion-list>
+    </form>
+</ion-content>

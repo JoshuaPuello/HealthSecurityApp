@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Wikis</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="open()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!-- todo: add elasticsearch support -->
+<ion-content padding>
+    <ion-refresher (ionRefresh)="loadAll($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let wiki of wikis; trackBy: trackId" #slidingItem>
+            <button ion-item (click)="detail(wiki)">
+                <p>{{wiki.titulo}}</p>
+                <ion-avatar *ngIf="wiki.imagen">
+                    <img [src]="'data:' + wiki.imagenContentType + ';base64,' + wiki.imagen" />
+                    <p *ngIf="wiki.imagen">{{wiki.imagenContentType}}, {{byteSize(wiki.imagen)}}</p>
+                </ion-avatar>
+                <p>{{wiki.descripcion}}</p>
+            </button>
+            <ion-item-options>
+                <button ion-button color="primary" (click)="open(slidingItem, wiki)">
+                    {{ 'EDIT_BUTTON' | translate }}
+                </button>
+                <button ion-button color="danger" (click)="delete(wiki)">
+                    {{ 'DELETE_BUTTON' | translate }}
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-item *ngIf="!wikis?.length">
+        No Wikis found.
+    </ion-item>
+</ion-content>

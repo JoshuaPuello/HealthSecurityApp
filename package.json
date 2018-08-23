@@ -1,8 +1,8 @@
 {
   "name": "HealthSecurityApp",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Ionic Framework + JHipster",
+  "homepage": "https://www.jhipster.tech",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -61,7 +61,8 @@
     "protractor": "5.1.1",
     "node-http-server": "8.1.2",
     "ts-loader": "4.2.0",
-    "ts-node": "6.0.0"
+    "ts-node": "6.0.0",
+    "generator-jhipster-ionic": "3.2.0"
   },
   "cordova": {
     "plugins": {
@@ -104,5 +105,5 @@
     ],
     "coverageDirectory": "./public/coverage"
   },
-  "description": "An Ionic project"
+  "description": "A hipster Ionic project, made with 💙 by @oktadev!"
 }

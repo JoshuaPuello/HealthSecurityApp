@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Reporte</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Valoracion</ion-label>
+            <div item-content>
+                <span>{{reporte.valoracion}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Nombre</ion-label>
+            <div item-content>
+                <span>{{reporte.nombre}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Descripcion</ion-label>
+            <div item-content>
+                <span>{{reporte.descripcion}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Accinones Realizadas</ion-label>
+            <div item-content>
+                <span>{{reporte.accinones_realizadas}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Evidencia</ion-label>
+            <div item-content>
+                <div *ngIf="reporte.evidencia">
+                    <a (click)="openFile(reporte.evidenciaContentType, reporte.evidencia)">
+                        <img [src]="'data:' + reporte.evidenciaContentType + ';base64,' + reporte.evidencia" style="max-width: 100%;" alt="reporte image"/>
+                    </a>
+                    {{reporte.evidenciaContentType}}, {{byteSize(reporte.evidencia)}}
+                </div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Lugar Evento</ion-label>
+            <div item-content>
+                <span>{{reporte.lugar_evento}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Tipo Evento</ion-label>
+            <div item-content>
+                <span>{{reporte.tipo_evento}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>B Labores</ion-label>
+            <div item-content>
+                <span>{{reporte.bLabores}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>B Reportado</ion-label>
+            <div item-content>
+                <span>{{reporte.bReportado}}</span>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="open(reporte)">{{ 'EDIT_BUTTON' | translate }}</button>
+</ion-content>

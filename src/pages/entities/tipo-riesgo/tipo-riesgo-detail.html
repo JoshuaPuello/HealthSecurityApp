@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Tipo Riesgo</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Nombre</ion-label>
+            <div item-content>
+                <span>{{tipoRiesgo.nombre}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Descripcion</ion-label>
+            <div item-content>
+                <span>{{tipoRiesgo.descripcion}}</span>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="open(tipoRiesgo)">{{ 'EDIT_BUTTON' | translate }}</button>
+</ion-content>

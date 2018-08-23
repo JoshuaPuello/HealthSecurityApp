@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Respuestas</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="open()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!-- todo: add elasticsearch support -->
+<ion-content padding>
+    <ion-refresher (ionRefresh)="loadAll($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let respuesta of respuestas; trackBy: trackId" #slidingItem>
+            <button ion-item (click)="detail(respuesta)">
+                <!-- todo: special handling for translating enum - {{'ValoracionEnum.' + respuesta.valoracion}}" -->
+                <p>{{respuesta.valoracion}}</p>
+                <p>{{respuesta.descripcion}}</p>
+                <!-- todo: special handling for translating enum - {{'EstadoEnum.' + respuesta.estado}}" -->
+                <p>{{respuesta.estado}}</p>
+            </button>
+            <ion-item-options>
+                <button ion-button color="primary" (click)="open(slidingItem, respuesta)">
+                    {{ 'EDIT_BUTTON' | translate }}
+                </button>
+                <button ion-button color="danger" (click)="delete(respuesta)">
+                    {{ 'DELETE_BUTTON' | translate }}
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-item *ngIf="!respuestas?.length">
+        No Respuestas found.
+    </ion-item>
+</ion-content>

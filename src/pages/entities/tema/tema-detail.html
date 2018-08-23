@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Tema</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Nombre</ion-label>
+            <div item-content>
+                <span>{{tema.nombre}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Descripcion</ion-label>
+            <div item-content>
+                <span>{{tema.descripcion}}</span>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="open(tema)">{{ 'EDIT_BUTTON' | translate }}</button>
+</ion-content>
