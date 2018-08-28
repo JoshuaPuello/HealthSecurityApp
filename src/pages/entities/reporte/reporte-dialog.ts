@@ -6,6 +6,8 @@ import { IonicPage, NavController, NavParams, ToastController, ViewController } 
 import { Reporte } from './reporte.model';
 import { ReporteService } from './reporte.provider';
 import { Respuesta, RespuestaService } from '../respuesta';
+import { User } from '../../../models/user.model';
+import { User as UserService } from '../../../providers/user/user';
 
 @IonicPage()
 @Component({
@@ -16,6 +18,7 @@ export class ReporteDialogPage {
 
     reporte: Reporte;
     respuestas: Respuesta[];
+    users: User[];
     @ViewChild('fileInput') fileInput;
     cameraOptions: CameraOptions;
     isReadyToSave: boolean;
@@ -26,6 +29,7 @@ export class ReporteDialogPage {
                 formBuilder: FormBuilder, params: NavParams,
                 private dataUtils: JhiDataUtils, private elementRef: ElementRef, private camera: Camera,
                 private respuestaService: RespuestaService,
+                private userService: UserService,
                 private reporteService: ReporteService) {
         this.reporte = params.get('item');
         if (this.reporte && this.reporte.id) {
@@ -49,6 +53,7 @@ export class ReporteDialogPage {
             bLabores: [params.get('item') ? this.reporte.bLabores : 'false',  Validators.required],
             bReportado: [params.get('item') ? this.reporte.bReportado : 'false',  Validators.required],
             respuesta: [params.get('item') ? this.reporte.respuesta : '',],
+            user: [params.get('item') ? this.reporte.user : '',],
         });
 
         // Watch the form for changes, and
@@ -73,6 +78,7 @@ export class ReporteDialogPage {
     ionViewDidLoad() {
         this.respuestaService.query()
             .subscribe(data => { this.respuestas = data; }, (error) => this.onError(error));
+        this.userService.findAll().subscribe(data => this.users = data, (error) => this.onError(error));
     }
 
     /**
@@ -149,6 +155,13 @@ export class ReporteDialogPage {
     }
 
     trackRespuestaById(index: number, item: Respuesta) {
+        return item.id;
+    }
+    compareUser(first: User, second: User): boolean {
+        return first && second ? first.id === second.id : first === second;
+    }
+
+    trackUserById(index: number, item: User) {
         return item.id;
     }
 }

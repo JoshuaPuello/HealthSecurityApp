@@ -18,6 +18,7 @@ export class EntityPage {
       {name: 'Categorias', component: 'CategoriaPage'},
       {name: 'Area de riesgo', component: 'AreaRiesgoPage'},
       {name: 'Tipos de riesgo', component: 'TipoRiesgoPage'},
+      {name: 'Reporte', component: 'ReportePage'},
       /* jhipster-needle-add-entity-page - JHipster will add entity pages here */
   ];
 

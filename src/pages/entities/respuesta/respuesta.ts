@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, ModalController, NavController, ToastController } from 'ionic-angular';
+import { Principal } from '../../../providers/auth/principal.service';
 import { JhiDataUtils } from 'ng-jhipster';
 import { Respuesta } from './respuesta.model';
 import { RespuestaService } from './respuesta.provider';
@@ -11,14 +12,24 @@ import { RespuestaService } from './respuesta.provider';
     selector: 'page-respuesta',
     templateUrl: 'respuesta.html'
 })
-export class RespuestaPage {
+export class RespuestaPage implements OnInit {
+    account: Account;
     respuestas: Respuesta[];
 
     // todo: add pagination
 
     constructor(private dataUtils: JhiDataUtils,private navCtrl: NavController, private respuestaService: RespuestaService,
-                private modalCtrl: ModalController, private toastCtrl: ToastController) {
+                private modalCtrl: ModalController, private toastCtrl: ToastController, private principal: Principal) {
         this.respuestas = [];
+    }
+
+    ngOnInit() {
+        this.principal.identity().then((account) => {
+            if (account === null) {
+            } else {
+            this.account = account;
+            }
+        });
     }
 
     ionViewDidLoad() {
@@ -28,7 +39,8 @@ export class RespuestaPage {
     loadAll(refresher?) {
         this.respuestaService.query().subscribe(
             (response) => {
-                this.respuestas = response;
+                this.respuestas = response.filter(rep => rep.reporte.user.id === this.account.id);
+                console.log("Id en sesion: " + this.account.id);
                 if (typeof(refresher) !== 'undefined') {
                     refresher.complete();
                 }

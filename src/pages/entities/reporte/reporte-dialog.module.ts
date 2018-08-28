@@ -1,4 +1,5 @@
 import { RespuestaService } from '../respuesta';
+import { User as UserService } from '../../../providers/user/user';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
@@ -19,6 +20,7 @@ import { ReporteService } from './reporte.provider';
     providers: [
         ReporteService,
         RespuestaService,
+        UserService,
     ]
 })
 export class ReporteDialogPageModule {

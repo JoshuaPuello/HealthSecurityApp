@@ -24,7 +24,7 @@
             </div>
         </ion-item>
         <ion-item>
-            <ion-label fixed>Accinones Realizadas</ion-label>
+            <ion-label fixed>Acciones Realizadas</ion-label>
             <div item-content>
                 <span>{{reporte.accinones_realizadas}}</span>
             </div>
@@ -36,6 +36,7 @@
                     <a (click)="openFile(reporte.evidenciaContentType, reporte.evidencia)">
                         <img [src]="'data:' + reporte.evidenciaContentType + ';base64,' + reporte.evidencia" style="max-width: 100%;" alt="reporte image"/>
                     </a>
+                    {{reporte.evidenciaContentType}}, {{byteSize(reporte.evidencia)}}
                 </div>
             </div>
         </ion-item>
@@ -52,7 +53,7 @@
             </div>
         </ion-item>
         <ion-item>
-            <ion-label fixed>¿Estaba realizando sus labores habituales?</ion-label>
+            <ion-label fixed>¿Se encontraba realizando sus labores habituales?</ion-label>
             <div item-content>
                 <span>{{reporte.bLabores}}</span>
             </div>
@@ -62,6 +63,10 @@
             <div item-content>
                 <span>{{reporte.bReportado}}</span>
             </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Usuario</ion-label>
+            <div item-content>{{reporte.user?.login}}</div>
         </ion-item>
     </ion-list>
 

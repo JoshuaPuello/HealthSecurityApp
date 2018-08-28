@@ -1,4 +1,4 @@
-import { BaseEntity } from './../../../models';
+import { BaseEntity, User } from './../../../models';
 
 export const enum ValoracionEnum {
     'LEVE',
@@ -30,6 +30,7 @@ export class Reporte implements BaseEntity {
         public bLabores?: boolean,
         public bReportado?: boolean,
         public respuesta?: BaseEntity,
+        public user?: User,
     ) {
         this.bLabores = false;
         this.bReportado = false;

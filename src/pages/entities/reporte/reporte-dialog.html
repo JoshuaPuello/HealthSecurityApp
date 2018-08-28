@@ -74,12 +74,19 @@
                 </ion-select>
             </ion-item>
             <ion-item>
-                <ion-label>¿Estaba realizando sus labores habituales?</ion-label>
+                <ion-label>¿Se encontraba realizando sus labores habituales?</ion-label>
                 <ion-checkbox formControlName="bLabores"></ion-checkbox>
             </ion-item>
             <ion-item>
                 <ion-label>¿Reportó el caso con su jefe inmediato?</ion-label>
                 <ion-checkbox formControlName="bReportado"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label>Usuario</ion-label>
+                <ion-select id="field_user" formControlName="user" [compareWith]="compareUser">
+                    <ion-option [value]="null"></ion-option>
+                    <ion-option [value]="userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</ion-option>
+                </ion-select>
             </ion-item>
         </ion-list>
     </form>

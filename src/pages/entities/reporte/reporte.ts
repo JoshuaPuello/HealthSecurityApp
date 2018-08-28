@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, ModalController, NavController, ToastController } from 'ionic-angular';
+import { Principal } from '../../../providers/auth/principal.service';
 import { JhiDataUtils } from 'ng-jhipster';
 import { Reporte } from './reporte.model';
 import { ReporteService } from './reporte.provider';
@@ -11,16 +12,26 @@ import { ReporteService } from './reporte.provider';
     selector: 'page-reporte',
     templateUrl: 'reporte.html'
 })
-export class ReportePage {
+export class ReportePage implements OnInit {
+    account: Account;
     reportes: Reporte[];
 
     // todo: add pagination
 
     constructor(private dataUtils: JhiDataUtils,private navCtrl: NavController, private reporteService: ReporteService,
-                private modalCtrl: ModalController, private toastCtrl: ToastController) {
+                private modalCtrl: ModalController, private toastCtrl: ToastController, private principal: Principal) {
         this.reportes = [];
     }
 
+    ngOnInit() {
+        this.principal.identity().then((account) => {
+            if (account === null) {
+            } else {
+            this.account = account;
+            }
+        });
+    }
+        
     ionViewDidLoad() {
         this.loadAll();
     }
@@ -28,7 +39,7 @@ export class ReportePage {
     loadAll(refresher?) {
         this.reporteService.query().subscribe(
             (response) => {
-                this.reportes = response;
+                this.reportes = response.filter(report => report.user.id === this.account.id);
                 if (typeof(refresher) !== 'undefined') {
                     refresher.complete();
                 }
