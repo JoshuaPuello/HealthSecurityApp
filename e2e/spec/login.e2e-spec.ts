@@ -12,7 +12,7 @@ describe('Login', () => {
     });
 
     it('should show a login button', () => {
-        expect(loginPage.getHeader()).toMatch(/Welcome, Java Hipster/);
+        expect(loginPage.getHeader()).toMatch(/Welcome/);
         expect(loginPage.loginButton.isPresent());
     });
 

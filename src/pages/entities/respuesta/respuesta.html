@@ -1,11 +1,6 @@
 <ion-header>
     <ion-navbar>
         <ion-title>Respuestas</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-only (click)="open()">
-                <ion-icon name="add"></ion-icon>
-            </button>
-        </ion-buttons>
     </ion-navbar>
 </ion-header>
 <!-- todo: add elasticsearch support -->
@@ -34,6 +29,6 @@
         </ion-item-sliding>
     </ion-list>
     <ion-item *ngIf="!respuestas?.length">
-        No Respuestas found.
+        No se han encontrado respuestas.
     </ion-item>
 </ion-content>

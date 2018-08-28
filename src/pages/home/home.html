@@ -1,18 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Welcome, {{account?.firstName}}!
+      ¡Bienvenido, {{account?.firstName}}!
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="logout()" id="logout">
-        Logout
+        Cerrar sesión
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <p>{{ 'WELCOME_INTRO' | translate }}</p>
+  <p align="justify">Esta es la aplicación móvil de HealthSecurity, donde podrás realizar reportes, 
+  consultar estado de las respuestas, obtener información general sobre la prevención de riesgos laborales.</p>
 
   <span class="hipster"></span>
 </ion-content>

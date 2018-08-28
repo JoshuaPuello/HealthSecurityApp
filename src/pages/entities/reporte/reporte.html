@@ -18,20 +18,57 @@
         <ion-item-sliding *ngFor="let reporte of reportes; trackBy: trackId" #slidingItem>
             <button ion-item (click)="detail(reporte)">
                 <!-- todo: special handling for translating enum - {{'ValoracionEnum.' + reporte.valoracion}}" -->
-                <p>{{reporte.valoracion}}</p>
-                <p>{{reporte.nombre}}</p>
-                <p>{{reporte.descripcion}}</p>
-                <p>{{reporte.accinones_realizadas}}</p>
-                <ion-avatar *ngIf="reporte.evidencia">
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"><p><b>Nombre</b></p></td>
+                            <td align="right"><p>{{reporte.nombre}}</p></td>
+                        </tr>
+                        <tr>
+                            <td scope="row"><p><b>Valoración</b></p></td>
+                            <td align="right"><p>{{reporte.valoracion}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p><b>Evidencia</b></p></td>
+                            <td align="right"><ion-avatar *ngIf="reporte.evidencia">
                     <img [src]="'data:' + reporte.evidenciaContentType + ';base64,' + reporte.evidencia" />
-                    <p *ngIf="reporte.evidencia">{{reporte.evidenciaContentType}}, {{byteSize(reporte.evidencia)}}</p>
-                </ion-avatar>
+                </ion-avatar></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                
+                
+                
+                <!-- <p><b>Nombre</b></p>
+                <p>{{reporte.descripcion}}</p> -->
+                <!-- <p>{{reporte.accinones_realizadas}}</p> -->
+                
+                
                 <!-- todo: special handling for translating enum - {{'LugarEventoEnum.' + reporte.lugar_evento}}" -->
+                <p><b>Lugar del evento</b></p>
                 <p>{{reporte.lugar_evento}}</p>
                 <!-- todo: special handling for translating enum - {{'TipoEventoEnum.' + reporte.tipo_evento}}" -->
+                <p><b>Tipo de evento</b></p>
                 <p>{{reporte.tipo_evento}}</p>
-                <p>{{reporte.bLabores}}</p>
-                <p>{{reporte.bReportado}}</p>
+                <!-- <p>{{reporte.bLabores}}</p>
+                <p>{{reporte.bReportado}}</p> -->
             </button>
             <ion-item-options>
                 <button ion-button color="primary" (click)="open(slidingItem, reporte)">
@@ -44,6 +81,6 @@
         </ion-item-sliding>
     </ion-list>
     <ion-item *ngIf="!reportes?.length">
-        No Reportes found.
+        No se han encontrado reportes.
     </ion-item>
 </ion-content>

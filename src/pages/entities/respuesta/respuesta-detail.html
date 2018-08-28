@@ -26,14 +26,14 @@
         <ion-item>
             <ion-label>Reporte</ion-label>
             <div item-content *ngIf="respuesta.reporte">
-                <a>{{respuesta.reporte?.id}}</a>
+                <a>{{respuesta.reporte?.nombre}}</a>
             </div>
         </ion-item>
         <ion-item>
             <ion-label>Area Riesgo</ion-label>
             <div item-content>
                 <span *ngFor="let areaRiesgo of respuesta.areaRiesgos; let last = last">
-                    <a>{{areaRiesgo.id}}</a>{{last ? '' : ', '}}
+                    <a>{{areaRiesgo.nombre}}</a>{{last ? '' : ', '}}
                 </span>
             </div>
         </ion-item>
@@ -41,11 +41,12 @@
             <ion-label>Tipo Riesgo</ion-label>
             <div item-content>
                 <span *ngFor="let tipoRiesgo of respuesta.tipoRiesgos; let last = last">
-                    <a>{{tipoRiesgo.id}}</a>{{last ? '' : ', '}}
+                    <a>{{tipoRiesgo.nombre}}</a>{{last ? '' : ', '}}
                 </span>
             </div>
         </ion-item>
     </ion-list>
 
-    <button ion-button block (click)="open(respuesta)">{{ 'EDIT_BUTTON' | translate }}</button>
+    <!-- <button ion-button block (click)="open(respuesta)">{{ 'EDIT_BUTTON' | translate }}</button> -->
+    
 </ion-content>

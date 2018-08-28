@@ -36,7 +36,6 @@
                     <a (click)="openFile(reporte.evidenciaContentType, reporte.evidencia)">
                         <img [src]="'data:' + reporte.evidenciaContentType + ';base64,' + reporte.evidencia" style="max-width: 100%;" alt="reporte image"/>
                     </a>
-                    {{reporte.evidenciaContentType}}, {{byteSize(reporte.evidencia)}}
                 </div>
             </div>
         </ion-item>
@@ -53,13 +52,13 @@
             </div>
         </ion-item>
         <ion-item>
-            <ion-label fixed>B Labores</ion-label>
+            <ion-label fixed>¿Estaba realizando sus labores habituales?</ion-label>
             <div item-content>
                 <span>{{reporte.bLabores}}</span>
             </div>
         </ion-item>
         <ion-item>
-            <ion-label fixed>B Reportado</ion-label>
+            <ion-label fixed>¿Reportó el caso con su jefe inmediato?</ion-label>
             <div item-content>
                 <span>{{reporte.bReportado}}</span>
             </div>
