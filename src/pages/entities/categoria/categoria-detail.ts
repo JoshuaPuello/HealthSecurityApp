@@ -32,7 +32,7 @@ export class CategoriaDetailPage {
                 this.categoriaService.update(categoria).subscribe(data => {
                     this.categoria = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'Categoria updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'Categoria actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }

@@ -60,7 +60,7 @@ export class TipoRiesgoPage {
                     this.tipoRiesgoService.update(tipoRiesgo).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'TipoRiesgo updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'TipoRiesgo actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -68,7 +68,7 @@ export class TipoRiesgoPage {
                     this.tipoRiesgoService.create(tipoRiesgo).subscribe(data => {
                         this.tipoRiesgos.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'TipoRiesgo added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'TipoRiesgo agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -80,7 +80,7 @@ export class TipoRiesgoPage {
     delete(tipoRiesgo) {
         this.tipoRiesgoService.delete(tipoRiesgo.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'TipoRiesgo deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'TipoRiesgo eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

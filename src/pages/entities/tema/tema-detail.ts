@@ -32,7 +32,7 @@ export class TemaDetailPage {
                 this.temaService.update(tema).subscribe(data => {
                     this.tema = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'Tema updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'Tema actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }

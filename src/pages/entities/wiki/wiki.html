@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Wikis</ion-title>
+        <ion-title>Glosario HSEQ</ion-title>
     </ion-navbar>
 </ion-header>
 <!-- todo: add elasticsearch support -->
@@ -15,7 +15,6 @@
                 <p>{{wiki.titulo}}</p>
                 <ion-avatar *ngIf="wiki.imagen">
                     <img [src]="'data:' + wiki.imagenContentType + ';base64,' + wiki.imagen" />
-                    <p *ngIf="wiki.imagen">{{wiki.imagenContentType}}, {{byteSize(wiki.imagen)}}</p>
                 </ion-avatar>
                 <p>{{wiki.descripcion}}</p>
             </button>

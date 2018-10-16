@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+    <ion-title>REGISTRO</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -22,17 +22,17 @@
       </ion-item> -->
 
       <ion-item>
-        <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+        <ion-label floating>Email</ion-label>
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-label floating>Contraseña</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
       </ion-item>
 
       <div padding>
-        <button ion-button color="primary" block>{{ 'SIGNUP_BUTTON' | translate }}</button>
+        <button ion-button color="primary" block>Registrarme</button>
       </div>
 
     </ion-list>

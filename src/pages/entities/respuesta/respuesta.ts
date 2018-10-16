@@ -72,7 +72,7 @@ export class RespuestaPage implements OnInit {
                     this.respuestaService.update(respuesta).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'Respuesta updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Respuesta actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -80,7 +80,7 @@ export class RespuestaPage implements OnInit {
                     this.respuestaService.create(respuesta).subscribe(data => {
                         this.respuestas.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'Respuesta added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Respuesta agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -92,7 +92,7 @@ export class RespuestaPage implements OnInit {
     delete(respuesta) {
         this.respuestaService.delete(respuesta.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'Respuesta deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'Respuesta eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

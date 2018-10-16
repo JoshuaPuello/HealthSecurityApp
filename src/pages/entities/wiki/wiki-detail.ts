@@ -32,7 +32,7 @@ export class WikiDetailPage {
                 this.wikiService.update(wiki).subscribe(data => {
                     this.wiki = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'Wiki updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'Wiki actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }

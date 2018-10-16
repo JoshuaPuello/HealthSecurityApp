@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Settings } from '../../providers/providers';
+import { InAppBrowser,InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -38,7 +39,8 @@ export class SettingsPage {
     public settings: Settings,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    private inAppBrowser: InAppBrowser) {
   }
 
   _buildForm() {
@@ -89,7 +91,18 @@ export class SettingsPage {
     });
   }
 
+  toBrowser(){
+    
+    const options: InAppBrowserOptions = {
+      zoom: 'no'
+    }
+
+    const browser = this.inAppBrowser.create('https://goo.gl/forms/xVturiszK3phtkww2', '_self', options);
+
+  }
+
   ngOnChanges() {
     console.log('Ng All Changes');
   }
+  
 }

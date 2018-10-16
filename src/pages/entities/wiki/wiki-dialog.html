@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Wiki</ion-title>
+        <ion-title>Glosario HSEQ</ion-title>
         <ion-buttons start>
             <button ion-button (click)="cancel()">
                 <span color="primary" showWhen="ios">
@@ -33,7 +33,6 @@
                 <div>
                     <img [src]="'data:' + wiki.imagenContentType + ';base64,' + wiki.imagen" style="max-height: 100px;" *ngIf="wiki?.imagen" alt="wiki image"/>
                     <div *ngIf="wiki.imagen">
-                        <p>{{wiki.imagenContentType}}, {{byteSize(wiki.imagen)}}</p>
                         <button type="button" class="trash" (click)="clearInputImage('imagen', 'imagenContentType', 'fileImage')">
                             <ion-icon name="trash"></ion-icon>
                         </button>

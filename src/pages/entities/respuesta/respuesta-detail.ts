@@ -32,7 +32,7 @@ export class RespuestaDetailPage {
                 this.respuestaService.update(respuesta).subscribe(data => {
                     this.respuesta = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'Respuesta updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'Respuesta actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }

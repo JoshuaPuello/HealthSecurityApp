@@ -60,7 +60,7 @@ export class WikiPage {
                     this.wikiService.update(wiki).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'Wiki updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Wiki actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -68,7 +68,7 @@ export class WikiPage {
                     this.wikiService.create(wiki).subscribe(data => {
                         this.wikis.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'Wiki added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Wiki agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -80,7 +80,7 @@ export class WikiPage {
     delete(wiki) {
         this.wikiService.delete(wiki.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'Wiki deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'Wiki eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

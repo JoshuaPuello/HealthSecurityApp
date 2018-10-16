@@ -13,12 +13,11 @@ export class EntityPage {
   entities: Array<any> = [
       {name: 'Reportes', component: 'ReportePage'},
       {name: 'Respuestas', component: 'RespuestaPage'},
-      {name: 'Wiki', component: 'WikiPage'},
+      {name: 'Glosario HSEQ', component: 'WikiPage'},
       {name: 'Temas', component: 'TemaPage'},
       {name: 'Categorias', component: 'CategoriaPage'},
       {name: 'Area de riesgo', component: 'AreaRiesgoPage'},
       {name: 'Tipos de riesgo', component: 'TipoRiesgoPage'},
-      {name: 'Reporte', component: 'ReportePage'},
       /* jhipster-needle-add-entity-page - JHipster will add entity pages here */
   ];
 

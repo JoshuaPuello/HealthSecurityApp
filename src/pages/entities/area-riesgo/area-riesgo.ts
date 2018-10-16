@@ -60,7 +60,7 @@ export class AreaRiesgoPage {
                     this.areaRiesgoService.update(areaRiesgo).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'AreaRiesgo updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'AreaRiesgo actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -68,7 +68,7 @@ export class AreaRiesgoPage {
                     this.areaRiesgoService.create(areaRiesgo).subscribe(data => {
                         this.areaRiesgos.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'AreaRiesgo added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'AreaRiesgo agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -80,7 +80,7 @@ export class AreaRiesgoPage {
     delete(areaRiesgo) {
         this.areaRiesgoService.delete(areaRiesgo.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'AreaRiesgo deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'AreaRiesgo eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

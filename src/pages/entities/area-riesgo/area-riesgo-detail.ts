@@ -32,7 +32,7 @@ export class AreaRiesgoDetailPage {
                 this.areaRiesgoService.update(areaRiesgo).subscribe(data => {
                     this.areaRiesgo = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'AreaRiesgo updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'AreaRiesgo actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }

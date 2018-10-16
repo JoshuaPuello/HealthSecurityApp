@@ -55,13 +55,13 @@
         <ion-item>
             <ion-label fixed>¿Se encontraba realizando sus labores habituales?</ion-label>
             <div item-content>
-                <span>{{reporte.bLabores}}</span>
+                <span>{{reporte.bLabores === true ? 'SI' : 'NO'}}</span>
             </div>
         </ion-item>
         <ion-item>
             <ion-label fixed>¿Reportó el caso con su jefe inmediato?</ion-label>
             <div item-content>
-                <span>{{reporte.bReportado}}</span>
+                <span>{{reporte.bReportado === true ? 'SI' : 'NO'}}</span>
             </div>
         </ion-item>
         <ion-item>

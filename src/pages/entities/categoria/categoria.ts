@@ -60,7 +60,7 @@ export class CategoriaPage {
                     this.categoriaService.update(categoria).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'Categoria updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Categoria actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -68,7 +68,7 @@ export class CategoriaPage {
                     this.categoriaService.create(categoria).subscribe(data => {
                         this.categorias.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'Categoria added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Categoria agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -80,7 +80,7 @@ export class CategoriaPage {
     delete(categoria) {
         this.categoriaService.delete(categoria.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'Categoria deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'Categoria eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

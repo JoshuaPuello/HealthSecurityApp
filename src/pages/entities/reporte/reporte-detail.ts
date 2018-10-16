@@ -32,7 +32,7 @@ export class ReporteDetailPage {
                 this.reporteService.update(reporte).subscribe(data => {
                     this.reporte = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'Reporte updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'Reporte actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }

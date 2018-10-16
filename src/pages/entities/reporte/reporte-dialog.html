@@ -41,13 +41,12 @@
                 <ion-textarea placeholder="Descripcion" formControlName="descripcion" id="field_descripcion"></ion-textarea>
             </ion-item>
             <ion-item>
-                <ion-textarea placeholder="Accinones Realizadas" formControlName="accinones_realizadas" id="field_accinones_realizadas"></ion-textarea>
+                <ion-textarea placeholder="Acciones Realizadas" formControlName="accinones_realizadas" id="field_accinones_realizadas"></ion-textarea>
             </ion-item>
             <ion-item>
                 <div>
                     <img [src]="'data:' + reporte.evidenciaContentType + ';base64,' + reporte.evidencia" style="max-height: 100px;" *ngIf="reporte?.evidencia" alt="reporte image"/>
                     <div *ngIf="reporte.evidencia">
-                        <p>{{reporte.evidenciaContentType}}, {{byteSize(reporte.evidencia)}}</p>
                         <button type="button" class="trash" (click)="clearInputImage('evidencia', 'evidenciaContentType', 'fileImage')">
                             <ion-icon name="trash"></ion-icon>
                         </button>
@@ -74,11 +73,11 @@
                 </ion-select>
             </ion-item>
             <ion-item>
-                <ion-label>¿Se encontraba realizando sus labores habituales?</ion-label>
+                <ion-label>¿Realizaba labores habituales?</ion-label>
                 <ion-checkbox formControlName="bLabores"></ion-checkbox>
             </ion-item>
             <ion-item>
-                <ion-label>¿Reportó el caso con su jefe inmediato?</ion-label>
+                <ion-label>¿Reportó a su jefe inmediato?</ion-label>
                 <ion-checkbox formControlName="bReportado"></ion-checkbox>
             </ion-item>
             <ion-item>

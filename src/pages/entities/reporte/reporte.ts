@@ -71,7 +71,7 @@ export class ReportePage implements OnInit {
                     this.reporteService.update(reporte).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'Reporte updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Reporte actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -79,7 +79,7 @@ export class ReportePage implements OnInit {
                     this.reporteService.create(reporte).subscribe(data => {
                         this.reportes.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'Reporte added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Reporte agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -91,7 +91,7 @@ export class ReportePage implements OnInit {
     delete(reporte) {
         this.reporteService.delete(reporte.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'Reporte deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'Reporte eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

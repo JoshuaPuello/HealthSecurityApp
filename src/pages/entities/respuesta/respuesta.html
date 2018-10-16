@@ -13,6 +13,7 @@
         <ion-item-sliding *ngFor="let respuesta of respuestas; trackBy: trackId" #slidingItem>
             <button ion-item (click)="detail(respuesta)">
                 <!-- todo: special handling for translating enum - {{'ValoracionEnum.' + respuesta.valoracion}}" -->
+                <p><strong>{{respuesta.reporte?.nombre}}</strong></p>
                 <p>{{respuesta.valoracion}}</p>
                 <p>{{respuesta.descripcion}}</p>
                 <!-- todo: special handling for translating enum - {{'EstadoEnum.' + respuesta.estado}}" -->

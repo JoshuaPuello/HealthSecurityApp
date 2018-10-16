@@ -3,6 +3,7 @@ import { JhiDataUtils } from 'ng-jhipster';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
+import { Principal } from '../../../providers/auth/principal.service';
 import { Reporte } from './reporte.model';
 import { ReporteService } from './reporte.provider';
 import { Respuesta, RespuestaService } from '../respuesta';
@@ -18,6 +19,7 @@ export class ReporteDialogPage {
 
     reporte: Reporte;
     respuestas: Respuesta[];
+    account: Account;
     users: User[];
     @ViewChild('fileInput') fileInput;
     cameraOptions: CameraOptions;
@@ -30,7 +32,7 @@ export class ReporteDialogPage {
                 private dataUtils: JhiDataUtils, private elementRef: ElementRef, private camera: Camera,
                 private respuestaService: RespuestaService,
                 private userService: UserService,
-                private reporteService: ReporteService) {
+                private reporteService: ReporteService, private principal: Principal) {
         this.reporte = params.get('item');
         if (this.reporte && this.reporte.id) {
             this.reporteService.find(this.reporte.id).subscribe(data => {
@@ -39,6 +41,13 @@ export class ReporteDialogPage {
         } else {
             this.reporte = new Reporte();
         }
+
+        this.principal.identity().then((account) => {
+            if (account === null) {
+            } else {
+            this.account = account;
+            }
+        });
 
         this.form = formBuilder.group({
             id: [params.get('item') ? this.reporte.id : null],
@@ -78,7 +87,12 @@ export class ReporteDialogPage {
     ionViewDidLoad() {
         this.respuestaService.query()
             .subscribe(data => { this.respuestas = data; }, (error) => this.onError(error));
-        this.userService.findAll().subscribe(data => this.users = data, (error) => this.onError(error));
+        this.userService.findAll().subscribe(
+            (data) => {
+                this.users = data.filter(usr => usr.id === this.account.id);
+            }, 
+            (error) => this.onError(error)
+        );
     }
 
     /**

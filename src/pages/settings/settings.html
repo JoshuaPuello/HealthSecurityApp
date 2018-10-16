@@ -1,45 +1,26 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ pageTitle }}</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Acerca de</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
-  <form [formGroup]="form" *ngIf="settingsReady">
-    <ion-list *ngIf="page == 'main'">
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION1' | translate }}</ion-label>
-        <ion-toggle formControlName="option1"></ion-toggle>
-      </ion-item>
+  <h3 align="center" style="font-size: 30px; color: #3429F0; margin-top: 20px; font-weight: bold;">HealthSecurity</h3>
+  <br>
+  <p align="justify" style="margin-top: 20px; color: #3429F0; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; line-height: 22px;">HealthSecurity es una plataforma para el acompañamiento de los programas de prevención de riesgos 
+  laborales. A través de nuestra app móvil es posible reportar cualquier evento que consideres pone en peligro tu integridad como trabajador, 
+  el cual será dirigido hacia el departamento de seguridad y salud en el trabajo.</p>
 
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION2' | translate }}</ion-label>
-        <ion-input formControlName="option2"></ion-input>
-      </ion-item>
+  <p align="justify" style="margin-top: 50px; color: black; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; line-height: 22px;">Ayúdanos a mejorar nuestra aplicación, accede a través del siguiente botón y responde una breve encuesta sobre el uso de la misma.
+  Muchas gracias.</p>
 
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION3' | translate }}</ion-label>
-        <ion-select formControlName="option3">
-          <ion-option value="1" checked="true">1</ion-option>
-          <ion-option value="2">2</ion-option>
-          <ion-option value="3">3</ion-option>
-        </ion-select>
-      </ion-item>
+  <ion-row padding>
+    <button ion-button color="primary" block (click)="toBrowser()" id="encuesta">Ir a encuesta</button>
+  </ion-row>
 
-      <button ion-item [navPush]="subSettings" [navParams]="profileSettings">
-        {{ 'SETTINGS_PROFILE_BUTTON' | translate }}
-      </button>
-    </ion-list>
-
-    <ion-list *ngIf="page == 'profile'">
-      <ion-item>
-        <ion-label>{{ 'SETTINGS_OPTION4' | translate }}</ion-label>
-        <ion-input formControlName="option4"></ion-input>
-      </ion-item>
-    </ion-list>
-  </form>
+  <p style="margin-top: 20px; font-family: 'Trebuchet MS', Helvetica, sans-serif; line-height: 15px;" align="center">HealthSecurity</p>
 
 </ion-content>

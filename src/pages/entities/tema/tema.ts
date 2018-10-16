@@ -60,7 +60,7 @@ export class TemaPage {
                     this.temaService.update(tema).subscribe(data => {
                         this.loadAll();
                         let toast = this.toastCtrl.create(
-                            {message: 'Tema updated successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Tema actualizado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                         slidingItem.close();
                     }, (error) => console.error(error));
@@ -68,7 +68,7 @@ export class TemaPage {
                     this.temaService.create(tema).subscribe(data => {
                         this.temas.push(data);
                         let toast = this.toastCtrl.create(
-                            {message: 'Tema added successfully.', duration: 3000, position: 'middle'});
+                            {message: 'Tema agregado correctamente.', duration: 3000, position: 'middle'});
                         toast.present();
                     }, (error) => console.error(error));
                 }
@@ -80,7 +80,7 @@ export class TemaPage {
     delete(tema) {
         this.temaService.delete(tema.id).subscribe(() => {
             let toast = this.toastCtrl.create(
-                {message: 'Tema deleted successfully.', duration: 3000, position: 'middle'});
+                {message: 'Tema eliminado correctamente.', duration: 3000, position: 'middle'});
             toast.present();
             this.loadAll();
         }, (error) => console.error(error));

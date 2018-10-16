@@ -32,7 +32,7 @@ export class TipoRiesgoDetailPage {
                 this.tipoRiesgoService.update(tipoRiesgo).subscribe(data => {
                     this.tipoRiesgo = data;
                     let toast = this.toastCtrl.create(
-                        {message: 'TipoRiesgo updated successfully.', duration: 3000, position: 'middle'});
+                        {message: 'TipoRiesgo actualizado correctamente.', duration: 3000, position: 'middle'});
                     toast.present();
                 }, (error) => console.error(error));
             }
